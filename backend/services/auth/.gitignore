@@ -1,0 +1,6 @@
+.env
+node_modules
+*.json
+!package.json
+!package-lock.json
+bhuai-4a275-firebase-adminsdk-fbsvc-3bc884c6cd.json
