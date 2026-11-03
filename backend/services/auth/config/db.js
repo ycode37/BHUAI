@@ -6,6 +6,7 @@ const connectDB = async () => {
     console.log("DB Connected Successfully At Auth Server");
   } catch (err) {
     console.log(`DB Error ${err}`);
+    throw err;
   }
 };
 
