@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import GLogin from "./Components/Buttons/GLogin";
+import Home from "./pages/Home";
+import getCurrentUser from "./features/getCurrentUser";
 
 const App = () => {
+  useEffect(() => {
+    const getUser = async () => {
+      await getCurrentUser();
+    };
+    getUser();
+  }, []);
   return (
     <>
-      <GLogin />
+      <Home />
     </>
   );
 };
