@@ -2,12 +2,16 @@ import React from "react";
 import { auth, googleProvider } from "../../utils/firebase.js";
 import { signInWithPopup } from "firebase/auth";
 import api from "../../utils/axios.js";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserData } from "../../redux/userSlice.js";
 
 const GLogin = () => {
+  const { userData } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const handleLogin = async (token) => {
     try {
       const { data } = await api.post("/auth/login", { token });
-      console.log(data);
+      dispatch(setUserData(data));
     } catch (error) {
       console.log(error);
     }
